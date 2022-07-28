@@ -35,7 +35,6 @@
     } @else if $font == "bold" {
         font-family: RobotoBold, Verdana, Helvetica, Arial, sans-serif;
     } @else {
-        //если ошибка, то шрифт по умолчанию
         font-family: RobotoRegular, Verdana, Helvetica, Arial, sans-serif;
     }
 
@@ -83,17 +82,12 @@ $COLOR_DARK: #23374d;
         &.left {
             flex: 1;
         }
-
-        //&.right{
-        //border: 1px solid red;
-        //}
     }
 
     &__logo {
         position: relative;
         display: flex;
         align-items: center;
-        //min-width: 200px;
         padding-right: 20px;
     }
     &__ico {
@@ -101,13 +95,9 @@ $COLOR_DARK: #23374d;
         padding-right: 20px;
         & img {
             width: 145px;
-            //height: 25px;
         }
     }
-    /*&__name {
-        display: flex;
-        height: 18px;
-    }*/
+
     &__search {
         position: relative;
         display: flex;
@@ -138,7 +128,6 @@ $COLOR_DARK: #23374d;
             justify-content: center;
             width: 50px;
             height: 100%;
-            //margin-left: 5px;
             & img {
                 width: 12px;
                 height: 12px;
@@ -184,19 +173,6 @@ $COLOR_DARK: #23374d;
     min-height: $HEIGHT_HEADER;
     padding: 0px $MAIN_SIDE_PADDING;
 
-    /*
-    &:after{
-        content: '';
-        display: inline-block;
-        position: absolute;
-        height: $HEIGHT_HEADER;
-        padding: 0px $MAIN_SIDE_PADDING;
-        border-bottom: 1px solid $LIGHT_COLOR_GRAY2;
-    }*/
-    /*&::after {
-        content: '';
-        box-sizing: content-box !important;  
-    }*/
     .nav-control-main {
         display: flex;
         align-items: center;
@@ -207,16 +183,12 @@ $COLOR_DARK: #23374d;
         &__navigation {
             .nav-control-main__list {
                 display: flex;
-                /*>div {
-                    padding-right: 20px;
-                }*/
+
                 .nav-control-main__item {
                     display: flex;
-                    //padding-right: 20px;
 
                     .nav-control-main__button {
                         display: flex;
-                        //height: calc($HEIGHT_HEADER - 10);
                         padding: 10px;
                         border-radius: 10px;
                         cursor: pointer;
@@ -245,7 +217,6 @@ $COLOR_DARK: #23374d;
                     }
 
                     &:last-child img {
-                        //у последнего итема стрека смотрит вниз. В реальности Стрелка должна быть внутри кнопки, а стрелка навигации скрыта.
                         transform: rotate(90deg);
                     }
                 }
@@ -255,14 +226,9 @@ $COLOR_DARK: #23374d;
         &__settings_container {
             display: flex;
             max-width: 290px;
-            min-width: 267px; //чтобы контейнер с кнопками справо сильно не сжимался, когда полоса в навигации будет слишком длинной из-за вложенностей.
+            min-width: 267px;
             flex: 1;
             justify-content: space-between;
-            /*сделал по другому - отступами флекса
-            .nav-control-main__setting:not(:last-child) {
-                //чтобы иконку настроек не смещать, оставить на уровне по центру с иконкой авторизации выше
-                margin-right: 5px;
-            }*/
 
             .nav-control-main__setting {
                 position: relative;
@@ -293,7 +259,6 @@ $COLOR_DARK: #23374d;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                //margin: 0 10px;
                 padding: 10px;
                 border-radius: 10px;
                 cursor: pointer;
@@ -316,22 +281,7 @@ $COLOR_DARK: #23374d;
                     }
                 }
             }
-            /*
-            .nav-control-main__settings {
-                display: flex;
-                padding: 10px;
-            }
-            .nav-control-main__view {
-                display: flex;
-                padding: 10px;
-            }*/
         }
-        /*&__view {
-            position: relative;
-            display: flex;
-            width: 30px;
-            justify-content: center;
-        }*/
     }
 }
 
@@ -342,11 +292,7 @@ $COLOR_DARK: #23374d;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    //width: 100%;
-    //height: 100%;//!!ломает верстку, итемы выскакивают за паддинг из контейнера флекс
     padding: 30px $MAIN_SIDE_PADDING;
-
-    //!! РЕЖИМ отображения списком
 
     .main-projects__table {
         display: flex;
@@ -357,7 +303,6 @@ $COLOR_DARK: #23374d;
             flex-direction: row;
 
             &:nth-of-type(even) {
-                //!! заливка фона для роу через один. Возможно лучше убрать.
                 background-color: $LIGHT_COLOR_GRAY;
             }
 
@@ -375,7 +320,7 @@ $COLOR_DARK: #23374d;
             }
             &__name {
                 display: flex;
-                flex-grow: 1; //все остальные элементы прижаты вправо
+                flex-grow: 1;
                 align-items: center;
                 justify-content: flex-start;
                 @include font("medium", 13.5px);
@@ -444,7 +389,6 @@ $COLOR_DARK: #23374d;
                     display: flex;
                     width: 22px;
                     cursor: pointer;
-                    //margin-right: 5px;
                     img {
                         max-width: 100%;
                     }
@@ -453,20 +397,17 @@ $COLOR_DARK: #23374d;
         }
     }
 
-    //!! РЕЖИМ отображения плиткой
-
     &__list {
-        //position: absolute;
         width: 100%;
         display: grid;
         grid-template-columns: repeat(
             auto-fill,
             minmax(170px, 1fr)
-        ); //!!убрал minmax(190px,1fr) - чтобы не растягивть итемы
+        );
         grid-template-rows: repeat(
             auto-fit,
             190px
-        ); //!!убрал minmax(190px,1fr) - чтобы не растягивть итемы
+        );
         grid-column-gap: 20px;
         grid-row-gap: 20px;
         justify-items: center;
@@ -476,7 +417,6 @@ $COLOR_DARK: #23374d;
             display: flex;
             flex-direction: column;
             width: 100%;
-            //max-width: 170px;//!!добавил для ограничения растягивания по ширине
             height: 190px;
             background: #fff;
             border: 1px solid #c4c4c4;
@@ -484,39 +424,13 @@ $COLOR_DARK: #23374d;
             overflow: hidden;
 
             .folder {
-                //если итем это папка, то превью растягивать не нужно, там одна статичная иконка папки
                 & img {
                     max-width: 100% !important;
                     height: auto !important;
                     object-fit: none !important;
                 }
             }
-            /*
-            &__preview {
-                position: relative;
-                display: flex;
-                flex: 1 1 auto;
-                align-items: center;
-                justify-content: space-between;
 
-                .item-project__ico {
-                    position: relative;
-                    display: flex;
-                    width: 100%;
-                    pointer-events: none;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100%;
-                    max-height: 148px; //максимальная высота контейнера с превью
-
-                    & img {
-                        //height: 148px;
-                        max-width: 100%;
-                        //object-fit: contain;
-                    }
-                }
-            }
-            */
             &__ico {
                 position: relative;
                 display: flex;
@@ -526,7 +440,7 @@ $COLOR_DARK: #23374d;
                 flex: 1 1 auto;
                 align-items: center;
                 justify-content: center;
-                max-height: 148px; //максимальная высота контейнера в превью чтобы не смещалось название вниз из-за разных размеров картинок
+                max-height: 148px;
 
                 & img {
                     object-fit: cover;
@@ -543,7 +457,6 @@ $COLOR_DARK: #23374d;
                 width: 100%;
                 pointer-events: none;
                 background-color: #ffffff;
-                //margin-bottom: 15px;
 
                 & span {
                     @include font;
